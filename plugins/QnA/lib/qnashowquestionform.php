@@ -118,6 +118,15 @@ class QnashowquestionForm extends Form
             'question-' . $this->question->id
         );
 
+        $this->out->hidden(
+            'answer-action',
+            common_local_url(
+                'qnanewanswer',
+                null,
+                array('id' => 'question-' . $this->question->id)
+            )
+        );
+
         $this->out->raw($this->question->asHTML());
     }
 
